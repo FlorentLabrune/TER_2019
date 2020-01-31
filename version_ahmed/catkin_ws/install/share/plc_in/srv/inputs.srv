@@ -1,0 +1,5 @@
+int8 data_in_module
+int16 data_in_position
+bool data_in_value
+---
+string feedback_in

@@ -1,0 +1,8 @@
+prefix=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel
+
+Name: plc_out
+Description: Description of plc_out
+Version: 0.0.0
+Cflags: -I/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/include
+Libs: -L/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/lib 
+Requires: message_runtime

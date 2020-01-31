@@ -1,0 +1,8 @@
+prefix=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install
+
+Name: vrep_common
+Description: Description of vrep_common
+Version: 3.1.2
+Cflags: -I/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install/include
+Libs: -L/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install/lib 
+Requires: message_runtime

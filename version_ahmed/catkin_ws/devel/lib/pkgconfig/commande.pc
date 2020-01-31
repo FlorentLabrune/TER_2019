@@ -1,0 +1,8 @@
+prefix=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel
+
+Name: commande
+Description: Description of commande
+Version: 3.1.2
+Cflags: -I/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/include
+Libs: -L/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/lib 
+Requires: roscpp message_runtime
