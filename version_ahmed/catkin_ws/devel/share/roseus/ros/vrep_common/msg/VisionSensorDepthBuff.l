@@ -110,7 +110,7 @@ MSG: std_msgs/MultiArrayLayout
 # to inner most.
 
 MultiArrayDimension[] dim # Array of dimension properties
-uint32 data_offset        # padding bytes at front of data
+uint32 data_offset        # padding elements at front of data
 
 # Accessors should ALWAYS be written in terms of dimension stride
 # and specified outer-most dimension first.
@@ -131,6 +131,7 @@ uint32 data_offset        # padding bytes at front of data
 # dim[2].stride = 3
 #
 # multiarray(i,j,k) refers to the ith row, jth column, and kth channel.
+
 ================================================================================
 MSG: std_msgs/MultiArrayDimension
 string label   # label of given dimension

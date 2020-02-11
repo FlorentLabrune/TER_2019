@@ -1,8 +1,8 @@
-prefix=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install
+prefix=/home/florent/Documents/TER/version_ahmed/catkin_ws/install
 
 Name: plc_out
 Description: Description of plc_out
 Version: 0.0.0
-Cflags: -I/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install/include
-Libs: -L/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install/lib 
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
 Requires: message_runtime

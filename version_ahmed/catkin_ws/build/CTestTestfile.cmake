@@ -1,10 +1,15 @@
 # CMake generated Testfile for 
-# Source directory: /home/projn7cellule/CelluleFlexible/catkin_ws/src
-# Build directory: /home/projn7cellule/CelluleFlexible/catkin_ws/build
+# Source directory: /home/florent/Documents/TER/version_ahmed/catkin_ws/src
+# Build directory: /home/florent/Documents/TER/version_ahmed/catkin_ws/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-SUBDIRS(gtest)
-SUBDIRS(vrep_common)
-SUBDIRS(commande_locale)
-SUBDIRS(planificateur)
+subdirs(gtest)
+subdirs(automates)
+subdirs(communication)
+subdirs(plc_in)
+subdirs(plc_out)
+subdirs(vrep_common)
+subdirs(commande)
+subdirs(commande_locale)
+subdirs(planificateur)

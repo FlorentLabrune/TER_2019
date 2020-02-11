@@ -1,8 +1,8 @@
-prefix=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel
+prefix=/home/florent/Documents/TER/version_ahmed/catkin_ws/devel
 
 Name: communication
 Description: Description of communication
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: roscpp rospy std_msgs message_runtime

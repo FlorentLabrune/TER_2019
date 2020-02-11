@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "roscpp;rospy;std_msgs;message_runtime".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "communication"
-PROJECT_SPACE_DIR = "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install"
+PROJECT_SPACE_DIR = "/home/florent/Documents/TER/version_ahmed/catkin_ws/install"
 PROJECT_VERSION = "0.0.0"

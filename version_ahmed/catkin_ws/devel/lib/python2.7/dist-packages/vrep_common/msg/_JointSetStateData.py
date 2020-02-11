@@ -127,13 +127,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.handles.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.handles.layout.data_offset))
       length = len(self.handles.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%si'%length
@@ -146,13 +143,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.setModes.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.setModes.layout.data_offset))
       _x = self.setModes.data
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -168,13 +162,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.values.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.values.layout.data_offset))
       length = len(self.values.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -213,11 +204,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.handles.layout.dim.append(val1)
       start = end
       end += 4
-      (self.handles.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.handles.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -243,11 +234,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.setModes.layout.dim.append(val1)
       start = end
       end += 4
-      (self.setModes.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.setModes.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -272,11 +263,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.values.layout.dim.append(val1)
       start = end
       end += 4
-      (self.values.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.values.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -304,13 +295,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.handles.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.handles.layout.data_offset))
       length = len(self.handles.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%si'%length
@@ -323,13 +311,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.setModes.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.setModes.layout.data_offset))
       _x = self.setModes.data
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -345,13 +330,10 @@ float32[]         data          # array of data
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.values.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.values.layout.data_offset))
       length = len(self.values.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -391,11 +373,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.handles.layout.dim.append(val1)
       start = end
       end += 4
-      (self.handles.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.handles.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -421,11 +403,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.setModes.layout.dim.append(val1)
       start = end
       end += 4
-      (self.setModes.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.setModes.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -450,11 +432,11 @@ float32[]         data          # array of data
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.values.layout.dim.append(val1)
       start = end
       end += 4
-      (self.values.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.values.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -467,4 +449,12 @@ float32[]         data          # array of data
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2I = struct.Struct("<2I")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_2I = None
+def _get_struct_2I():
+    global _struct_2I
+    if _struct_2I is None:
+        _struct_2I = struct.Struct("<2I")
+    return _struct_2I

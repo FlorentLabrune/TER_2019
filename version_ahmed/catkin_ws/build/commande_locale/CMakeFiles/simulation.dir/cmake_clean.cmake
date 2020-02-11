@@ -1,13 +1,13 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/simulation.dir/src/commande_locale.cpp.o"
   "CMakeFiles/simulation.dir/src/UI.cpp.o"
   "CMakeFiles/simulation.dir/src/inOutController.cpp.o"
   "CMakeFiles/simulation.dir/src/vrepController.cpp.o"
-  "/home/projn7cellule/CelluleFlexible/simulation.pdb"
-  "/home/projn7cellule/CelluleFlexible/simulation"
+  "/home/florent/Documents/TER/version_ahmed/simulation.pdb"
+  "/home/florent/Documents/TER/version_ahmed/simulation"
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang CXX)
-  INCLUDE(CMakeFiles/simulation.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang CXX)
+  include(CMakeFiles/simulation.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

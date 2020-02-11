@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::plc_out::outputs > {
   static const char* value()
   {
-    return "7612363d209ed9bb068bc9b81a8671e7";
+    return "97aea7623ae837c55d5e85ee1aae84af";
   }
 
   static const char* value(const ::plc_out::outputs&) { return value(); }
