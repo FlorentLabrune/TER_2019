@@ -75,7 +75,7 @@ float64 z"""
     """
     try:
       _x = self
-      buff.write(_struct_i6d.pack(_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z))
+      buff.write(_get_struct_i6d().pack(_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -95,7 +95,7 @@ float64 z"""
       _x = self
       start = end
       end += 52
-      (_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z,) = _struct_i6d.unpack(str[start:end])
+      (_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z,) = _get_struct_i6d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -109,7 +109,7 @@ float64 z"""
     """
     try:
       _x = self
-      buff.write(_struct_i6d.pack(_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z))
+      buff.write(_get_struct_i6d().pack(_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -130,10 +130,18 @@ float64 z"""
       _x = self
       start = end
       end += 52
-      (_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z,) = _struct_i6d.unpack(str[start:end])
+      (_x.sensorState.data, _x.force.x, _x.force.y, _x.force.z, _x.torque.x, _x.torque.y, _x.torque.z,) = _get_struct_i6d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i6d = struct.Struct("<i6d")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_i6d = None
+def _get_struct_i6d():
+    global _struct_i6d
+    if _struct_i6d is None:
+        _struct_i6d = struct.Struct("<i6d")
+    return _struct_i6d

@@ -1,2 +1,2 @@
 automates:commande:commande_locale:communication:planificateur:plc_in:plc_out:vrep_common
--DCATKIN_DEVEL_PREFIX=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/florent/Documents/TER/version_ahmed/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/florent/Documents/TER/version_ahmed/catkin_ws/install -G Unix Makefiles

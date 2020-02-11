@@ -2,11 +2,13 @@
 
 message(STATUS "plc_in: 0 messages, 1 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
+find_package(geneus REQUIRED)
 find_package(genlisp REQUIRED)
+find_package(gennodejs REQUIRED)
 find_package(genpy REQUIRED)
 
 add_custom_target(plc_in_generate_messages ALL)
@@ -15,13 +17,13 @@ add_custom_target(plc_in_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
 add_custom_target(_plc_in_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "plc_in" "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "plc_in" "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" ""
 )
 
 #
-#  langs = gencpp;genlisp;genpy
+#  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
 
 ### Section generating for lang: gencpp
@@ -29,7 +31,7 @@ add_custom_target(_plc_in_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(plc_in
-  "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv"
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/plc_in
@@ -47,7 +49,7 @@ add_custom_target(plc_in_generate_messages_cpp
 add_dependencies(plc_in_generate_messages plc_in_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
 add_dependencies(plc_in_generate_messages_cpp _plc_in_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -57,12 +59,45 @@ add_dependencies(plc_in_gencpp plc_in_generate_messages_cpp)
 # register target for catkin_package(EXPORTED_TARGETS)
 list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS plc_in_generate_messages_cpp)
 
+### Section generating for lang: geneus
+### Generating Messages
+
+### Generating Services
+_generate_srv_eus(plc_in
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/plc_in
+)
+
+### Generating Module File
+_generate_module_eus(plc_in
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/plc_in
+  "${ALL_GEN_OUTPUT_FILES_eus}"
+)
+
+add_custom_target(plc_in_generate_messages_eus
+  DEPENDS ${ALL_GEN_OUTPUT_FILES_eus}
+)
+add_dependencies(plc_in_generate_messages plc_in_generate_messages_eus)
+
+# add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+add_dependencies(plc_in_generate_messages_eus _plc_in_generate_messages_check_deps_${_filename})
+
+# target for backward compatibility
+add_custom_target(plc_in_geneus)
+add_dependencies(plc_in_geneus plc_in_generate_messages_eus)
+
+# register target for catkin_package(EXPORTED_TARGETS)
+list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS plc_in_generate_messages_eus)
+
 ### Section generating for lang: genlisp
 ### Generating Messages
 
 ### Generating Services
 _generate_srv_lisp(plc_in
-  "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv"
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/plc_in
@@ -80,7 +115,7 @@ add_custom_target(plc_in_generate_messages_lisp
 add_dependencies(plc_in_generate_messages plc_in_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
 add_dependencies(plc_in_generate_messages_lisp _plc_in_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -90,12 +125,45 @@ add_dependencies(plc_in_genlisp plc_in_generate_messages_lisp)
 # register target for catkin_package(EXPORTED_TARGETS)
 list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS plc_in_generate_messages_lisp)
 
+### Section generating for lang: gennodejs
+### Generating Messages
+
+### Generating Services
+_generate_srv_nodejs(plc_in
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/plc_in
+)
+
+### Generating Module File
+_generate_module_nodejs(plc_in
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/plc_in
+  "${ALL_GEN_OUTPUT_FILES_nodejs}"
+)
+
+add_custom_target(plc_in_generate_messages_nodejs
+  DEPENDS ${ALL_GEN_OUTPUT_FILES_nodejs}
+)
+add_dependencies(plc_in_generate_messages plc_in_generate_messages_nodejs)
+
+# add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+add_dependencies(plc_in_generate_messages_nodejs _plc_in_generate_messages_check_deps_${_filename})
+
+# target for backward compatibility
+add_custom_target(plc_in_gennodejs)
+add_dependencies(plc_in_gennodejs plc_in_generate_messages_nodejs)
+
+# register target for catkin_package(EXPORTED_TARGETS)
+list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS plc_in_generate_messages_nodejs)
+
 ### Section generating for lang: genpy
 ### Generating Messages
 
 ### Generating Services
 _generate_srv_py(plc_in
-  "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv"
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/plc_in
@@ -113,7 +181,7 @@ add_custom_target(plc_in_generate_messages_py
 add_dependencies(plc_in_generate_messages plc_in_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
+get_filename_component(_filename "/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_in/srv/inputs.srv" NAME_WE)
 add_dependencies(plc_in_generate_messages_py _plc_in_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -136,6 +204,17 @@ if(TARGET std_msgs_generate_messages_cpp)
   add_dependencies(plc_in_generate_messages_cpp std_msgs_generate_messages_cpp)
 endif()
 
+if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/plc_in)
+  # install generated code
+  install(
+    DIRECTORY ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/plc_in
+    DESTINATION ${geneus_INSTALL_DIR}
+  )
+endif()
+if(TARGET std_msgs_generate_messages_eus)
+  add_dependencies(plc_in_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
+
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/plc_in)
   # install generated code
   install(
@@ -145,6 +224,17 @@ if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/
 endif()
 if(TARGET std_msgs_generate_messages_lisp)
   add_dependencies(plc_in_generate_messages_lisp std_msgs_generate_messages_lisp)
+endif()
+
+if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/plc_in)
+  # install generated code
+  install(
+    DIRECTORY ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/plc_in
+    DESTINATION ${gennodejs_INSTALL_DIR}
+  )
+endif()
+if(TARGET std_msgs_generate_messages_nodejs)
+  add_dependencies(plc_in_generate_messages_nodejs std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/plc_in)

@@ -7,6 +7,10 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/opt/ros/indigo/share:/opt/ros/indigo/stacks:/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src"
+export CMAKE_PREFIX_PATH="/home/florent/Documents/TER/version_ahmed/catkin_ws/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD="/home/florent/Documents/TER/version_ahmed/catkin_ws/build"
+export PYTHONPATH="/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/projn7cellule/tuto_ahmed/Workspace_Cell/catkin_ws/src:/home/florent/Documents/TER/version_ahmed/catkin_ws/src:$ROS_PACKAGE_PATH"

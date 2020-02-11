@@ -28,12 +28,14 @@ struct Sorties_
     }
   Sorties_(const ContainerAllocator& _alloc)
     : sorties(0)  {
+  (void)_alloc;
     }
 
 
 
    typedef int32_t _sorties_type;
   _sorties_type sorties;
+
 
 
 
@@ -69,7 +71,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'automates': ['/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/src/automates/msg'], 'std_msgs': ['/opt/ros/jade/share/std_msgs/cmake/../msg']}
+// {'automates': ['/home/florent/Documents/TER/version_ahmed/catkin_ws/src/automates/msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -158,7 +160,7 @@ namespace serialization
       stream.next(m.sorties);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Sorties_
 
 } // namespace serialization

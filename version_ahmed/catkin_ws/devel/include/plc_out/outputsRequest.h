@@ -24,17 +24,28 @@ struct outputsRequest_
   typedef outputsRequest_<ContainerAllocator> Type;
 
   outputsRequest_()
-    : data_out(0)  {
+    : data_out_module(0)
+    , data_out_position(0)
+    , data_out_value(false)  {
     }
   outputsRequest_(const ContainerAllocator& _alloc)
-    : data_out(0)  {
+    : data_out_module(0)
+    , data_out_position(0)
+    , data_out_value(false)  {
   (void)_alloc;
     }
 
 
 
-   typedef int16_t _data_out_type;
-  _data_out_type data_out;
+   typedef int8_t _data_out_module_type;
+  _data_out_module_type data_out_module;
+
+   typedef int16_t _data_out_position_type;
+  _data_out_position_type data_out_position;
+
+   typedef uint8_t _data_out_value_type;
+  _data_out_value_type data_out_value;
+
 
 
 
@@ -70,7 +81,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/indigo/share/std_msgs/cmake/../msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -113,12 +124,12 @@ struct MD5Sum< ::plc_out::outputsRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "37a9569c32df203cc50f19c5018f9185";
+    return "0f395eff070e43eb81cba235ff59111a";
   }
 
   static const char* value(const ::plc_out::outputsRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x37a9569c32df203cULL;
-  static const uint64_t static_value2 = 0xc50f19c5018f9185ULL;
+  static const uint64_t static_value1 = 0x0f395eff070e43ebULL;
+  static const uint64_t static_value2 = 0x81cba235ff59111aULL;
 };
 
 template<class ContainerAllocator>
@@ -137,7 +148,9 @@ struct Definition< ::plc_out::outputsRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int16 data_out\n\
+    return "int8 data_out_module\n\
+int16 data_out_position\n\
+bool data_out_value\n\
 ";
   }
 
@@ -156,7 +169,9 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.data_out);
+      stream.next(m.data_out_module);
+      stream.next(m.data_out_position);
+      stream.next(m.data_out_value);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -175,8 +190,12 @@ struct Printer< ::plc_out::outputsRequest_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::plc_out::outputsRequest_<ContainerAllocator>& v)
   {
-    s << indent << "data_out: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.data_out);
+    s << indent << "data_out_module: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.data_out_module);
+    s << indent << "data_out_position: ";
+    Printer<int16_t>::stream(s, indent + "  ", v.data_out_position);
+    s << indent << "data_out_value: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.data_out_value);
   }
 };
 

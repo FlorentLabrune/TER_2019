@@ -18,7 +18,7 @@ include_directories(include ${OpenCV_INCLUDE_DIRS})
 catkin_package(CATKIN_DEPENDS roscpp message_runtime)
 
 
-add_executable(run src/main_commande.cpp  src/commande.cpp src/capteurs.cpp src/actionneurs.cpp src/communication_baxter.cpp) 
+add_executable(run src/main_commande.cpp  src/commande.cpp src/capteurs.cpp src/actionneurs.cpp ) 
 target_link_libraries(run ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 add_dependencies(run commande_generate_messages_cpp ${${commande}_EXPORTED_TARGETS})
 

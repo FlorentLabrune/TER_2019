@@ -1,10 +1,10 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/plc_out_client.dir/src/plc_out_client.cpp.o"
-  "/home/projn7cellule/cell_ros_ws/devel/lib/plc_out/plc_out_client.pdb"
-  "/home/projn7cellule/cell_ros_ws/devel/lib/plc_out/plc_out_client"
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/plc_out/plc_out_client.pdb"
+  "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/plc_out/plc_out_client"
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang CXX)
-  INCLUDE(CMakeFiles/plc_out_client.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang CXX)
+  include(CMakeFiles/plc_out_client.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
