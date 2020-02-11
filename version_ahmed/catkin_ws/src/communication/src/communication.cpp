@@ -12,7 +12,7 @@ using namespace std;
 ////// Classe communication_API_schneider //////
 
 // Constructeur 
-Communication_API_schneider::Communication_API_schneider(ros::NodeHandle noeud,const std::string num_API)
+Communication_API_schneider::Communication_API_schneider(ros::NodeHandle noeud,const string num_API)
 {
 	// Publishers
 	pub_sorties = noeud.advertise<automates::Sorties>("/automates/Sorties_ap"+num_API, 1);

@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-coord identification_act (std::string actuator_nm);
+coord identification_act (string actuator_nm);
 
 uint16_t actuators_now[3];
 
