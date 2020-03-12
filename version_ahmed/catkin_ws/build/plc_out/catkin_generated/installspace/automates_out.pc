@@ -1,8 +1,0 @@
-prefix=/home/projn7cellule/cell_ros_ws/install
-
-Name: automates_out
-Description: Description of automates_out
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/projn7cellule/cell_ros_ws/install/lib 
-Requires: 

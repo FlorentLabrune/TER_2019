@@ -1,8 +1,0 @@
-prefix=/home/florent/Documents/TER/version_ahmed/catkin_ws/install
-
-Name: commande_locale
-Description: Description of commande_locale
-Version: 3.1.2
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime
