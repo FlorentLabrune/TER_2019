@@ -22,7 +22,7 @@ bool receive(plc_out::outputs::Request &req,
    actuator_position = req.data_out_position;
    actuator_value = req.data_out_value;
 
-   std::stringstream ss;
+   stringstream ss;
    ss << "OK sending !";
    res.feedback_out = ss.str();
 
