@@ -11,12 +11,12 @@
 
 using namespace std;
 
-string identification_sen (uint8_t data_in_module, uint16_t data_in_position);
+std::string identification_sen (uint8_t data_in_module, uint16_t data_in_position);
 
 uint8_t sensor_module;
 uint16_t sensor_position;
 bool sensor_value;
-string sensor;
+std::string sensor;
 
 
 bool receive(plc_in::inputs::Request &req, 
@@ -28,7 +28,7 @@ bool receive(plc_in::inputs::Request &req,
    sensor_value = req.data_in_value;
 
    sensor = identification_sen (sensor_module, sensor_position);
-   stringstream ss;
+   std::stringstream ss;
    ss << "OK sending";
    res.feedback_in = ss.str();
    ROS_INFO ("[request] received change of : %s", sensor.c_str());

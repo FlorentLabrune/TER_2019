@@ -12,7 +12,7 @@
 #define NOMBRE_REGISTRES 1
 
 
-API_schneider::API_schneider(ros::NodeHandle noeud,const string num_API,const char* adresse_ip_api) 
+API_schneider::API_schneider(ros::NodeHandle noeud,const std::string num_API,const char* adresse_ip_api) 
 {
 	// Publishers
 	pub_entrees = noeud.advertise<automates::Entrees>("/automates/Entrees_ap"+num_API, 1);

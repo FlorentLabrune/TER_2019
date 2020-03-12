@@ -8,13 +8,6 @@
 int16_t sensors_data[3];
 int16_t actuators_data[3];
 
-struct coord{
-  uint8_t data_mod;
-  uint16_t data_pos;
-};
-coord identification_act (string nom_objet);
-string identification_sen (uint8_t data_in_module, uint16_t data_in_position);
-
 
 void readingCallback (const commande_plc::sensors msg)
 {
@@ -23,7 +16,7 @@ void readingCallback (const commande_plc::sensors msg)
 }
 
 // fonction d'initialisation des valeurs des actionneurs
-void val_act (string nom_objet, bool val)
+void val_act (std::string nom_objet, bool val)
 {
   uint8_t data_mod_aux;
   uint16_t data_pos_aux;
@@ -36,7 +29,7 @@ void val_act (string nom_objet, bool val)
 }
 
 //fonction d'association des variables à leurs valeurs, à l'aide de la fonction d'identification
-bool valeur(string nom_objet)
+bool valeur(std::string nom_objet)
 {
   bool data_out_aux;
   uint8_t data_mod_aux;
@@ -70,7 +63,7 @@ bool valeur(string nom_objet)
 int main(int argc, char **argv)
 {	
 //initialisation du noeud ros et création d'un handle associe au noeud
-	ros::init(argc, argv, "commande_plc");
+	ros::init(argc, argv, "commande_plc");	
 	ros::NodeHandle n;
         ros::Subscriber sub = n.subscribe("get_sensors_data", 1000, readingCallback);
         ros::Publisher pub = n.advertise<commande_plc::actuators>("set_actuators_data", 1000);
@@ -96,7 +89,7 @@ int main(int argc, char **argv)
 
 //Declaration des variables de transition entre les etapes de la grafcet
 	int jeton_g =1;
-  int jeton_k =1;
+        int jeton_k =1;
 
 	while (ros::ok())
 	{
@@ -160,14 +153,14 @@ int main(int argc, char **argv)
                         //TODO
 			break;
                   }*/
-    commande_plc::actuators msg;
-    msg.actuators_data0 = actuators_data[0];
-    msg.actuators_data1 = actuators_data[1];
-    msg.actuators_data2 = actuators_data[2];  
-    pub.publish(msg);
+                 commande_plc::actuators msg;
+                  msg.actuators_data0 = actuators_data[0];
+                  msg.actuators_data1 = actuators_data[1];
+                  msg.actuators_data2 = actuators_data[2];  
+                 pub.publish(msg);
           
-		ros::spinOnce(); //permet aux fonction callback de ros dans les objets d'êtres appelées
-		loop_rate.sleep(); //permet de synchroniser la boucle while. Il attend le temps qu'il reste pour faire le 25Hz (ou la fréquence indiquée dans le loop_rate)
+		 ros::spinOnce(); //permet aux fonction callback de ros dans les objets d'êtres appelées
+		 loop_rate.sleep(); //permet de synchroniser la boucle while. Il attend le temps qu'il reste pour faire le 25Hz (ou la fréquence indiquée dans le loop_rate)
 	}
 
 	return 0;

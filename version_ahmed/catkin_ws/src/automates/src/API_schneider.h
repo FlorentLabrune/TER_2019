@@ -19,7 +19,7 @@ private:
 public:
 
 	
-	API_schneider(ros::NodeHandle noeud,const string num_API,const char* adresse_ip_api) ;
+	API_schneider(ros::NodeHandle noeud,const std::string num_API,const char* adresse_ip_api) ;
 	~API_schneider();	
 	uint16_t get_register(int adresse_registre, int nombre_registres);
 	void write_register(int adresse_registre, int nombre_registres,uint16_t registre);
