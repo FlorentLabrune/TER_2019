@@ -1,8 +1,0 @@
-prefix=/home/florent/Documents/TER/version_ahmed/catkin_ws/install
-
-Name: commande
-Description: Description of commande
-Version: 3.1.2
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp message_runtime

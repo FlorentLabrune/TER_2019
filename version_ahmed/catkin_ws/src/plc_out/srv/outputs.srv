@@ -1,5 +1,0 @@
-int8 data_out_module
-int16 data_out_position
-bool data_out_value
----
-string feedback_out

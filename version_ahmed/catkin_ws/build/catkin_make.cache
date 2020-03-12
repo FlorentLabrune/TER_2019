@@ -1,2 +1,0 @@
-automates:commande:commande_locale:commande_plc:communication:planificateur:plc_in:plc_out:vrep_common
--DCATKIN_DEVEL_PREFIX=/home/florent/Documents/TER/version_ahmed/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/florent/Documents/TER/version_ahmed/catkin_ws/install -G Unix Makefiles
