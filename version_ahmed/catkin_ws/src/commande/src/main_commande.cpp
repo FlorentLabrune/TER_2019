@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 		////////////////////// scenario //////////////////////
 		/////////////////////////////////////////////////
 
-		if(M[15]>=1){if(Baxter.Attente_prise_bras_gauche()){M[15]--;M[11]++;}}			//t12
+		/*if(M[15]>=1){if(Baxter.Attente_prise_bras_gauche()){M[15]--;M[11]++;}}			//t12
 
 		if(M[14]>=1){if(Baxter.Attente_prise_bras_droit()){M[14]--;M[12]++;}}			//t13
 
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 
 		if(M[8]>=1){ if(Baxter.Prise_effectuee_bras_gauche() && !PSx[24]) {M[8]--;M[9]++;M[15]++;}}	//t8
 
-		if(M[9]>=1){ if(!PSx[22]) {M[9]--;M[1]++;}}						//t9
+		if(M[9]>=1){ if(!PSx[22]) {M[9]--;M[1]++;}}						//t9*/
 
 
 	

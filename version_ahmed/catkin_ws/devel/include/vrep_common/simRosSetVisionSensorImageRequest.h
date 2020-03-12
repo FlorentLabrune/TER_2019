@@ -45,6 +45,7 @@ struct simRosSetVisionSensorImageRequest_
 
 
 
+
   typedef boost::shared_ptr< ::vrep_common::simRosSetVisionSensorImageRequest_<ContainerAllocator> > Ptr;
   typedef boost::shared_ptr< ::vrep_common::simRosSetVisionSensorImageRequest_<ContainerAllocator> const> ConstPtr;
 
@@ -76,7 +77,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/indigo/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/indigo/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/indigo/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/projn7cellule/CelluleFlexible/catkin_ws/src/vrep_common/msg']}
+// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/florent/Documents/TER/version_ahmed/catkin_ws/src/vrep_common/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -158,7 +159,7 @@ MSG: sensor_msgs/Image\n\
 \n\
 Header header        # Header timestamp should be acquisition time of image\n\
                      # Header frame_id should be optical frame of camera\n\
-                     # origin of frame should be optical center of cameara\n\
+                     # origin of frame should be optical center of camera\n\
                      # +x should point to the right in the image\n\
                      # +y should point down in the image\n\
                      # +z should point into to plane of the image\n\

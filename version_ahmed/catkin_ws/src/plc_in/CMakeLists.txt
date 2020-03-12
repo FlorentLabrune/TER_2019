@@ -9,7 +9,6 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-
 ################################################
 ## Declare ROS messages, services and actions ##
 ################################################
@@ -34,6 +33,8 @@ find_package(catkin REQUIRED COMPONENTS
 ###################################
 
 catkin_package(
+    INCLUDE_DIRS include
+    LIBRARIES ${PROJECT_NAME}
 ## we have to add the dependency to this package:
    CATKIN_DEPENDS message_runtime
 )
@@ -47,6 +48,11 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_library(${PROJECT_NAME}
+  src/plc_config_sensors.cpp
+)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${GSTREAMER_LIBRARIES})
 
 ## we have also to add all this part for excution:
 add_executable(plc_in_server src/plc_in_server.cpp src/plc_config_sensors.cpp)

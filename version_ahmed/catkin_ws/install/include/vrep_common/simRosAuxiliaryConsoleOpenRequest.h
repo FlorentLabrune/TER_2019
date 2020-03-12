@@ -40,6 +40,7 @@ struct simRosAuxiliaryConsoleOpenRequest_
     , size(_alloc)
     , textColor(_alloc)
     , backgroundColor(_alloc)  {
+  (void)_alloc;
     }
 
 
@@ -64,6 +65,7 @@ struct simRosAuxiliaryConsoleOpenRequest_
 
    typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _backgroundColor_type;
   _backgroundColor_type backgroundColor;
+
 
 
 
@@ -99,7 +101,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/jade/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/jade/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/jade/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/src/vrep_common/msg']}
+// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/florent/Documents/TER/version_ahmed/catkin_ws/src/vrep_common/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -204,7 +206,7 @@ namespace serialization
       stream.next(m.backgroundColor);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct simRosAuxiliaryConsoleOpenRequest_
 
 } // namespace serialization

@@ -33,7 +33,9 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
 ## we have to add the dependency to this package:
-   CATKIN_DEPENDS message_runtime
+    INCLUDE_DIRS include
+    LIBRARIES ${PROJECT_NAME}
+    CATKIN_DEPENDS roscpp
 )
 
 
@@ -42,9 +44,15 @@ catkin_package(
 ###########
 
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_library(${PROJECT_NAME}
+  src/plc_config_actuators.cpp
+)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${GSTREAMER_LIBRARIES})
+
 
 ## we have also to add all this part for excution:
 add_executable(plc_out_server src/plc_out_server.cpp)

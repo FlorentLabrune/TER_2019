@@ -14,9 +14,10 @@ uint16_t actuators_now[3];
 
 void actCallback (const commande_plc::actuators msg)
 {
-  ROS_INFO("I heard actuators data: [%d]", msg.actuators_data);
-  for (int i=0; i<3; ++i)
-  {actuators_now[3] = actuators_data[i];}
+  ROS_INFO("I heard actuators data: [%d]", msg.actuators_data1);
+  actuators_now[0] = msg.actuators_data0;
+  actuators_now[1] = msg.actuators_data1;
+  actuators_now[2] = msg.actuators_data2;
 }
 
 int main(int argc, char **argv)
@@ -51,7 +52,6 @@ int main(int argc, char **argv)
                  call_srv_rslt = client.call(srv);
                  if (call_srv_rslt) 
 	           {
-      		     ROS_INFO("feedback reception: %s", srv.response.feedback_in.c_str());
       		     call_srv_rslt = 0;
       	           }
      	         else

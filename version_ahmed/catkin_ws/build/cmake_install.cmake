@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/florent/Documents/TER/version_ahmed/catkin_ws/build/vrep_common/cmake_install.cmake")
   include("/home/florent/Documents/TER/version_ahmed/catkin_ws/build/commande/cmake_install.cmake")
   include("/home/florent/Documents/TER/version_ahmed/catkin_ws/build/commande_locale/cmake_install.cmake")
+  include("/home/florent/Documents/TER/version_ahmed/catkin_ws/build/commande_plc/cmake_install.cmake")
   include("/home/florent/Documents/TER/version_ahmed/catkin_ws/build/planificateur/cmake_install.cmake")
 
 endif()

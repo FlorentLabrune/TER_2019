@@ -4,12 +4,13 @@ message(WARNING "Invoking generate_messages() without having added any message o
 You should either add add_message_files() and/or add_service_files() calls or remove the invocation of generate_messages().")
 message(STATUS "communication: 0 messages, 0 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
 find_package(geneus REQUIRED)
 find_package(genlisp REQUIRED)
+find_package(gennodejs REQUIRED)
 find_package(genpy REQUIRED)
 
 add_custom_target(communication_generate_messages ALL)
@@ -19,7 +20,7 @@ add_custom_target(communication_generate_messages ALL)
 
 
 #
-#  langs = gencpp;geneus;genlisp;genpy
+#  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
 
 ### Section generating for lang: gencpp
@@ -97,6 +98,31 @@ add_dependencies(communication_genlisp communication_generate_messages_lisp)
 # register target for catkin_package(EXPORTED_TARGETS)
 list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS communication_generate_messages_lisp)
 
+### Section generating for lang: gennodejs
+### Generating Messages
+
+### Generating Services
+
+### Generating Module File
+_generate_module_nodejs(communication
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/communication
+  "${ALL_GEN_OUTPUT_FILES_nodejs}"
+)
+
+add_custom_target(communication_generate_messages_nodejs
+  DEPENDS ${ALL_GEN_OUTPUT_FILES_nodejs}
+)
+add_dependencies(communication_generate_messages communication_generate_messages_nodejs)
+
+# add dependencies to all check dependencies targets
+
+# target for backward compatibility
+add_custom_target(communication_gennodejs)
+add_dependencies(communication_gennodejs communication_generate_messages_nodejs)
+
+# register target for catkin_package(EXPORTED_TARGETS)
+list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS communication_generate_messages_nodejs)
+
 ### Section generating for lang: genpy
 ### Generating Messages
 
@@ -131,7 +157,9 @@ if(gencpp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/co
     DESTINATION ${gencpp_INSTALL_DIR}
   )
 endif()
-add_dependencies(communication_generate_messages_cpp std_msgs_generate_messages_cpp)
+if(TARGET std_msgs_generate_messages_cpp)
+  add_dependencies(communication_generate_messages_cpp std_msgs_generate_messages_cpp)
+endif()
 
 if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/communication)
   # install generated code
@@ -140,7 +168,9 @@ if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/co
     DESTINATION ${geneus_INSTALL_DIR}
   )
 endif()
-add_dependencies(communication_generate_messages_eus std_msgs_generate_messages_eus)
+if(TARGET std_msgs_generate_messages_eus)
+  add_dependencies(communication_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/communication)
   # install generated code
@@ -149,14 +179,29 @@ if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/
     DESTINATION ${genlisp_INSTALL_DIR}
   )
 endif()
-add_dependencies(communication_generate_messages_lisp std_msgs_generate_messages_lisp)
+if(TARGET std_msgs_generate_messages_lisp)
+  add_dependencies(communication_generate_messages_lisp std_msgs_generate_messages_lisp)
+endif()
+
+if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/communication)
+  # install generated code
+  install(
+    DIRECTORY ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/communication
+    DESTINATION ${gennodejs_INSTALL_DIR}
+  )
+endif()
+if(TARGET std_msgs_generate_messages_nodejs)
+  add_dependencies(communication_generate_messages_nodejs std_msgs_generate_messages_nodejs)
+endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/communication)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/communication\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/communication\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/communication
     DESTINATION ${genpy_INSTALL_DIR}
   )
 endif()
-add_dependencies(communication_generate_messages_py std_msgs_generate_messages_py)
+if(TARGET std_msgs_generate_messages_py)
+  add_dependencies(communication_generate_messages_py std_msgs_generate_messages_py)
+endif()

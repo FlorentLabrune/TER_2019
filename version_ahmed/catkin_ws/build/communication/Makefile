@@ -56,6 +56,50 @@ CMAKE_BINARY_DIR = /home/florent/Documents/TER/version_ahmed/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -77,61 +121,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -179,6 +168,171 @@ start: communication/CMakeFiles/start.dir/rule
 start/fast:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/start.dir/build.make communication/CMakeFiles/start.dir/build
 .PHONY : start/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages_cpp.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages_cpp.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+communication_generate_messages_cpp: communication/CMakeFiles/communication_generate_messages_cpp.dir/rule
+
+.PHONY : communication_generate_messages_cpp
+
+# fast build rule for target.
+communication_generate_messages_cpp/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages_cpp.dir/build.make communication/CMakeFiles/communication_generate_messages_cpp.dir/build
+.PHONY : communication_generate_messages_cpp/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages_eus.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages_eus.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+communication_generate_messages_eus: communication/CMakeFiles/communication_generate_messages_eus.dir/rule
+
+.PHONY : communication_generate_messages_eus
+
+# fast build rule for target.
+communication_generate_messages_eus/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages_eus.dir/build.make communication/CMakeFiles/communication_generate_messages_eus.dir/build
+.PHONY : communication_generate_messages_eus/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_gencpp.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_gencpp.dir/rule
+.PHONY : communication/CMakeFiles/communication_gencpp.dir/rule
+
+# Convenience name for target.
+communication_gencpp: communication/CMakeFiles/communication_gencpp.dir/rule
+
+.PHONY : communication_gencpp
+
+# fast build rule for target.
+communication_gencpp/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_gencpp.dir/build.make communication/CMakeFiles/communication_gencpp.dir/build
+.PHONY : communication_gencpp/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_geneus.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_geneus.dir/rule
+.PHONY : communication/CMakeFiles/communication_geneus.dir/rule
+
+# Convenience name for target.
+communication_geneus: communication/CMakeFiles/communication_geneus.dir/rule
+
+.PHONY : communication_geneus
+
+# fast build rule for target.
+communication_geneus/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_geneus.dir/build.make communication/CMakeFiles/communication_geneus.dir/build
+.PHONY : communication_geneus/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages_lisp.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages_lisp.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+communication_generate_messages_lisp: communication/CMakeFiles/communication_generate_messages_lisp.dir/rule
+
+.PHONY : communication_generate_messages_lisp
+
+# fast build rule for target.
+communication_generate_messages_lisp/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages_lisp.dir/build.make communication/CMakeFiles/communication_generate_messages_lisp.dir/build
+.PHONY : communication_generate_messages_lisp/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_genlisp.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_genlisp.dir/rule
+.PHONY : communication/CMakeFiles/communication_genlisp.dir/rule
+
+# Convenience name for target.
+communication_genlisp: communication/CMakeFiles/communication_genlisp.dir/rule
+
+.PHONY : communication_genlisp
+
+# fast build rule for target.
+communication_genlisp/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_genlisp.dir/build.make communication/CMakeFiles/communication_genlisp.dir/build
+.PHONY : communication_genlisp/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages.dir/rule
+
+# Convenience name for target.
+communication_generate_messages: communication/CMakeFiles/communication_generate_messages.dir/rule
+
+.PHONY : communication_generate_messages
+
+# fast build rule for target.
+communication_generate_messages/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages.dir/build.make communication/CMakeFiles/communication_generate_messages.dir/build
+.PHONY : communication_generate_messages/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages_nodejs.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages_nodejs.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+communication_generate_messages_nodejs: communication/CMakeFiles/communication_generate_messages_nodejs.dir/rule
+
+.PHONY : communication_generate_messages_nodejs
+
+# fast build rule for target.
+communication_generate_messages_nodejs/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages_nodejs.dir/build.make communication/CMakeFiles/communication_generate_messages_nodejs.dir/build
+.PHONY : communication_generate_messages_nodejs/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_generate_messages_py.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_generate_messages_py.dir/rule
+.PHONY : communication/CMakeFiles/communication_generate_messages_py.dir/rule
+
+# Convenience name for target.
+communication_generate_messages_py: communication/CMakeFiles/communication_generate_messages_py.dir/rule
+
+.PHONY : communication_generate_messages_py
+
+# fast build rule for target.
+communication_generate_messages_py/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_generate_messages_py.dir/build.make communication/CMakeFiles/communication_generate_messages_py.dir/build
+.PHONY : communication_generate_messages_py/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_genpy.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_genpy.dir/rule
+.PHONY : communication/CMakeFiles/communication_genpy.dir/rule
+
+# Convenience name for target.
+communication_genpy: communication/CMakeFiles/communication_genpy.dir/rule
+
+.PHONY : communication_genpy
+
+# fast build rule for target.
+communication_genpy/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_genpy.dir/build.make communication/CMakeFiles/communication_genpy.dir/build
+.PHONY : communication_genpy/fast
+
+# Convenience name for target.
+communication/CMakeFiles/communication_gennodejs.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communication_gennodejs.dir/rule
+.PHONY : communication/CMakeFiles/communication_gennodejs.dir/rule
+
+# Convenience name for target.
+communication_gennodejs: communication/CMakeFiles/communication_gennodejs.dir/rule
+
+.PHONY : communication_gennodejs
+
+# fast build rule for target.
+communication_gennodejs/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f communication/CMakeFiles/communication_gennodejs.dir/build.make communication/CMakeFiles/communication_gennodejs.dir/build
+.PHONY : communication_gennodejs/fast
 
 src/communication.o: src/communication.cpp.o
 
@@ -240,14 +394,24 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
-	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... start"
-	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... start"
+	@echo "... communication_generate_messages_cpp"
+	@echo "... edit_cache"
+	@echo "... communication_generate_messages_eus"
 	@echo "... test"
+	@echo "... communication_gencpp"
+	@echo "... communication_geneus"
+	@echo "... list_install_components"
+	@echo "... communication_generate_messages_lisp"
+	@echo "... communication_genlisp"
+	@echo "... communication_generate_messages"
+	@echo "... communication_generate_messages_nodejs"
+	@echo "... install"
+	@echo "... communication_generate_messages_py"
+	@echo "... communication_genpy"
+	@echo "... communication_gennodejs"
 	@echo "... src/communication.o"
 	@echo "... src/communication.i"
 	@echo "... src/communication.s"

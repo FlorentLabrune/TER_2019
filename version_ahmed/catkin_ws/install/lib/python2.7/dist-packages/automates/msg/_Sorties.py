@@ -11,7 +11,6 @@ class Sorties(genpy.Message):
   _type = "automates/Sorties"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 sorties
-
 """
   __slots__ = ['sorties']
   _slot_types = ['int32']
@@ -50,9 +49,9 @@ class Sorties(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      buff.write(_struct_i.pack(self.sorties))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i().pack(self.sorties))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -63,7 +62,7 @@ class Sorties(genpy.Message):
       end = 0
       start = end
       end += 4
-      (self.sorties,) = _struct_i.unpack(str[start:end])
+      (self.sorties,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -76,9 +75,9 @@ class Sorties(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      buff.write(_struct_i.pack(self.sorties))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i().pack(self.sorties))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -90,10 +89,18 @@ class Sorties(genpy.Message):
       end = 0
       start = end
       end += 4
-      (self.sorties,) = _struct_i.unpack(str[start:end])
+      (self.sorties,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i = struct.Struct("<i")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i

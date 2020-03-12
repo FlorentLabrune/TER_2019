@@ -60,7 +60,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/python2.7/dist-packages/automates")
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/lib/python2.7/dist-packages/automates")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

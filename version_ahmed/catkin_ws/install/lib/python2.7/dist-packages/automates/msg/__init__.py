@@ -1,2 +1,2 @@
-from ._Sorties import *
 from ._Entrees import *
+from ._Sorties import *

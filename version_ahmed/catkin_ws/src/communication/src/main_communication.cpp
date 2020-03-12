@@ -1,6 +1,7 @@
 ﻿#include "communication_API_schneider.h"
 #include "communication_commande.h"
 #include <ros/ros.h> 
+#include "automates/Entrees.h"
 
 using namespace std;
 

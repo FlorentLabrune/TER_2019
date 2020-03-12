@@ -122,17 +122,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles /home/florent/Documents/TER/version_ahmed/catkin_ws/build/commande_locale/CMakeFiles/progress.marks
@@ -164,6 +153,21 @@ preinstall/fast:
 depend:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+commande_locale/CMakeFiles/simulation.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/simulation.dir/rule
+.PHONY : commande_locale/CMakeFiles/simulation.dir/rule
+
+# Convenience name for target.
+simulation: commande_locale/CMakeFiles/simulation.dir/rule
+
+.PHONY : simulation
+
+# fast build rule for target.
+simulation/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/simulation.dir/build.make commande_locale/CMakeFiles/simulation.dir/build
+.PHONY : simulation/fast
 
 # Convenience name for target.
 commande_locale/CMakeFiles/commande_locale_genpy.dir/rule:
@@ -241,49 +245,19 @@ _commande_locale_generate_messages_check_deps_Msg_StopControl/fast:
 .PHONY : _commande_locale_generate_messages_check_deps_Msg_StopControl/fast
 
 # Convenience name for target.
-commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
-.PHONY : commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
+commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
+.PHONY : commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
 
 # Convenience name for target.
-commande_locale_genlisp: commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
+_commande_locale_generate_messages_check_deps_Msg_SwitchControl: commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
 
-.PHONY : commande_locale_genlisp
+.PHONY : _commande_locale_generate_messages_check_deps_Msg_SwitchControl
 
 # fast build rule for target.
-commande_locale_genlisp/fast:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/commande_locale_genlisp.dir/build.make commande_locale/CMakeFiles/commande_locale_genlisp.dir/build
-.PHONY : commande_locale_genlisp/fast
-
-# Convenience name for target.
-commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
-.PHONY : commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
-
-# Convenience name for target.
-_commande_locale_generate_messages_check_deps_Msg_SensorState: commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
-
-.PHONY : _commande_locale_generate_messages_check_deps_Msg_SensorState
-
-# fast build rule for target.
-_commande_locale_generate_messages_check_deps_Msg_SensorState/fast:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/build.make commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/build
-.PHONY : _commande_locale_generate_messages_check_deps_Msg_SensorState/fast
-
-# Convenience name for target.
-commande_locale/CMakeFiles/simulation.dir/rule:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/simulation.dir/rule
-.PHONY : commande_locale/CMakeFiles/simulation.dir/rule
-
-# Convenience name for target.
-simulation: commande_locale/CMakeFiles/simulation.dir/rule
-
-.PHONY : simulation
-
-# fast build rule for target.
-simulation/fast:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/simulation.dir/build.make commande_locale/CMakeFiles/simulation.dir/build
-.PHONY : simulation/fast
+_commande_locale_generate_messages_check_deps_Msg_SwitchControl/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/build.make commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/build
+.PHONY : _commande_locale_generate_messages_check_deps_Msg_SwitchControl/fast
 
 # Convenience name for target.
 commande_locale/CMakeFiles/commande_locale_generate_messages.dir/rule:
@@ -299,21 +273,6 @@ commande_locale_generate_messages: commande_locale/CMakeFiles/commande_locale_ge
 commande_locale_generate_messages/fast:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/commande_locale_generate_messages.dir/build.make commande_locale/CMakeFiles/commande_locale_generate_messages.dir/build
 .PHONY : commande_locale_generate_messages/fast
-
-# Convenience name for target.
-commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
-.PHONY : commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
-
-# Convenience name for target.
-_commande_locale_generate_messages_check_deps_Msg_SwitchControl: commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/rule
-
-.PHONY : _commande_locale_generate_messages_check_deps_Msg_SwitchControl
-
-# fast build rule for target.
-_commande_locale_generate_messages_check_deps_Msg_SwitchControl/fast:
-	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/build.make commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SwitchControl.dir/build
-.PHONY : _commande_locale_generate_messages_check_deps_Msg_SwitchControl/fast
 
 # Convenience name for target.
 commande_locale/CMakeFiles/commande_locale_generate_messages_eus.dir/rule:
@@ -389,6 +348,36 @@ commande_locale_geneus: commande_locale/CMakeFiles/commande_locale_geneus.dir/ru
 commande_locale_geneus/fast:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/commande_locale_geneus.dir/build.make commande_locale/CMakeFiles/commande_locale_geneus.dir/build
 .PHONY : commande_locale_geneus/fast
+
+# Convenience name for target.
+commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
+.PHONY : commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
+
+# Convenience name for target.
+_commande_locale_generate_messages_check_deps_Msg_SensorState: commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/rule
+
+.PHONY : _commande_locale_generate_messages_check_deps_Msg_SensorState
+
+# fast build rule for target.
+_commande_locale_generate_messages_check_deps_Msg_SensorState/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/build.make commande_locale/CMakeFiles/_commande_locale_generate_messages_check_deps_Msg_SensorState.dir/build
+.PHONY : _commande_locale_generate_messages_check_deps_Msg_SensorState/fast
+
+# Convenience name for target.
+commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
+.PHONY : commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
+
+# Convenience name for target.
+commande_locale_genlisp: commande_locale/CMakeFiles/commande_locale_genlisp.dir/rule
+
+.PHONY : commande_locale_genlisp
+
+# fast build rule for target.
+commande_locale_genlisp/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f commande_locale/CMakeFiles/commande_locale_genlisp.dir/build.make commande_locale/CMakeFiles/commande_locale_genlisp.dir/build
+.PHONY : commande_locale_genlisp/fast
 
 src/UI.o: src/UI.cpp.o
 
@@ -508,24 +497,23 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... install/local"
+	@echo "... simulation"
 	@echo "... install"
 	@echo "... commande_locale_genpy"
 	@echo "... commande_locale_generate_messages_py"
 	@echo "... commande_locale_gennodejs"
 	@echo "... commande_locale_generate_messages_nodejs"
 	@echo "... _commande_locale_generate_messages_check_deps_Msg_StopControl"
-	@echo "... commande_locale_genlisp"
-	@echo "... _commande_locale_generate_messages_check_deps_Msg_SensorState"
-	@echo "... simulation"
-	@echo "... commande_locale_generate_messages"
 	@echo "... _commande_locale_generate_messages_check_deps_Msg_SwitchControl"
+	@echo "... commande_locale_generate_messages"
 	@echo "... commande_locale_generate_messages_eus"
 	@echo "... commande_locale_generate_messages_cpp"
 	@echo "... commande_locale_generate_messages_lisp"
 	@echo "... commande_locale_gencpp"
 	@echo "... list_install_components"
-	@echo "... install/strip"
 	@echo "... commande_locale_geneus"
+	@echo "... _commande_locale_generate_messages_check_deps_Msg_SensorState"
+	@echo "... commande_locale_genlisp"
 	@echo "... src/UI.o"
 	@echo "... src/UI.i"
 	@echo "... src/UI.s"

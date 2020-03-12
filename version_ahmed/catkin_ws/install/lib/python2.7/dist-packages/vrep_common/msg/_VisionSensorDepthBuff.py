@@ -33,7 +33,7 @@ MSG: std_msgs/MultiArrayLayout
 # to inner most.
 
 MultiArrayDimension[] dim # Array of dimension properties
-uint32 data_offset        # padding bytes at front of data
+uint32 data_offset        # padding elements at front of data
 
 # Accessors should ALWAYS be written in terms of dimension stride
 # and specified outer-most dimension first.
@@ -54,12 +54,12 @@ uint32 data_offset        # padding bytes at front of data
 # dim[2].stride = 3
 #
 # multiarray(i,j,k) refers to the ith row, jth column, and kth channel.
+
 ================================================================================
 MSG: std_msgs/MultiArrayDimension
 string label   # label of given dimension
 uint32 size    # size of given dimension (in type units)
-uint32 stride  # stride of given dimension
-"""
+uint32 stride  # stride of given dimension"""
   __slots__ = ['x','y','data']
   _slot_types = ['std_msgs/Int32','std_msgs/Int32','std_msgs/Float32MultiArray']
 
@@ -104,7 +104,7 @@ uint32 stride  # stride of given dimension
     """
     try:
       _x = self
-      buff.write(_struct_2i.pack(_x.x.data, _x.y.data))
+      buff.write(_get_struct_2i().pack(_x.x.data, _x.y.data))
       length = len(self.data.layout.dim)
       buff.write(_struct_I.pack(length))
       for val1 in self.data.layout.dim:
@@ -113,19 +113,16 @@ uint32 stride  # stride of given dimension
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.data.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.data.layout.data_offset))
       length = len(self.data.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
       buff.write(struct.pack(pattern, *self.data.data))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -143,7 +140,7 @@ uint32 stride  # stride of given dimension
       _x = self
       start = end
       end += 8
-      (_x.x.data, _x.y.data,) = _struct_2i.unpack(str[start:end])
+      (_x.x.data, _x.y.data,) = _get_struct_2i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -162,11 +159,11 @@ uint32 stride  # stride of given dimension
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.data.layout.dim.append(val1)
       start = end
       end += 4
-      (self.data.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.data.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -187,7 +184,7 @@ uint32 stride  # stride of given dimension
     """
     try:
       _x = self
-      buff.write(_struct_2i.pack(_x.x.data, _x.y.data))
+      buff.write(_get_struct_2i().pack(_x.x.data, _x.y.data))
       length = len(self.data.layout.dim)
       buff.write(_struct_I.pack(length))
       for val1 in self.data.layout.dim:
@@ -196,19 +193,16 @@ uint32 stride  # stride of given dimension
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
-        if python3:
-          buff.write(struct.pack('<I%sB'%length, length, *_x))
-        else:
-          buff.write(struct.pack('<I%ss'%length, length, _x))
+        buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_2I.pack(_x.size, _x.stride))
-      buff.write(_struct_I.pack(self.data.layout.data_offset))
+        buff.write(_get_struct_2I().pack(_x.size, _x.stride))
+      buff.write(_get_struct_I().pack(self.data.layout.data_offset))
       length = len(self.data.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
       buff.write(self.data.data.tostring())
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -227,7 +221,7 @@ uint32 stride  # stride of given dimension
       _x = self
       start = end
       end += 8
-      (_x.x.data, _x.y.data,) = _struct_2i.unpack(str[start:end])
+      (_x.x.data, _x.y.data,) = _get_struct_2i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -246,11 +240,11 @@ uint32 stride  # stride of given dimension
         _x = val1
         start = end
         end += 8
-        (_x.size, _x.stride,) = _struct_2I.unpack(str[start:end])
+        (_x.size, _x.stride,) = _get_struct_2I().unpack(str[start:end])
         self.data.layout.dim.append(val1)
       start = end
       end += 4
-      (self.data.layout.data_offset,) = _struct_I.unpack(str[start:end])
+      (self.data.layout.data_offset,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -263,5 +257,18 @@ uint32 stride  # stride of given dimension
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2i = struct.Struct("<2i")
-_struct_2I = struct.Struct("<2I")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_2i = None
+def _get_struct_2i():
+    global _struct_2i
+    if _struct_2i is None:
+        _struct_2i = struct.Struct("<2i")
+    return _struct_2i
+_struct_2I = None
+def _get_struct_2I():
+    global _struct_2I
+    if _struct_2I is None:
+        _struct_2I = struct.Struct("<2I")
+    return _struct_2I

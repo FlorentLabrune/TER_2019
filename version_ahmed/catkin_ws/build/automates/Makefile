@@ -122,17 +122,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles /home/florent/Documents/TER/version_ahmed/catkin_ws/build/automates/CMakeFiles/progress.marks
@@ -682,7 +671,6 @@ help:
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... install/strip"
 	@echo "... automates_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_py"

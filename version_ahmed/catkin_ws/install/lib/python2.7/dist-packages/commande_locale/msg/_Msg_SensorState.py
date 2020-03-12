@@ -36,7 +36,6 @@ time stamp
 # 0: no frame
 # 1: global frame
 string frame_id
-
 """
   __slots__ = ['header','CPI','CP','PS','DG','DD']
   _slot_types = ['std_msgs/Header','bool[9]','bool[11]','bool[17]','bool[13]','bool[13]']
@@ -61,22 +60,22 @@ string frame_id
       if self.header is None:
         self.header = std_msgs.msg.Header()
       if self.CPI is None:
-        self.CPI = [False,False,False,False,False,False,False,False,False]
+        self.CPI = [False] * 9
       if self.CP is None:
-        self.CP = [False,False,False,False,False,False,False,False,False,False,False]
+        self.CP = [False] * 11
       if self.PS is None:
-        self.PS = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
+        self.PS = [False] * 17
       if self.DG is None:
-        self.DG = [False,False,False,False,False,False,False,False,False,False,False,False,False]
+        self.DG = [False] * 13
       if self.DD is None:
-        self.DD = [False,False,False,False,False,False,False,False,False,False,False,False,False]
+        self.DD = [False] * 13
     else:
       self.header = std_msgs.msg.Header()
-      self.CPI = [False,False,False,False,False,False,False,False,False]
-      self.CP = [False,False,False,False,False,False,False,False,False,False,False]
-      self.PS = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
-      self.DG = [False,False,False,False,False,False,False,False,False,False,False,False,False]
-      self.DD = [False,False,False,False,False,False,False,False,False,False,False,False,False]
+      self.CPI = [False] * 9
+      self.CP = [False] * 11
+      self.PS = [False] * 17
+      self.DG = [False] * 13
+      self.DD = [False] * 13
 
   def _get_types(self):
     """
@@ -91,23 +90,20 @@ string frame_id
     """
     try:
       _x = self
-      buff.write(_struct_3I.pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
+      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
       _x = self.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_struct_9B.pack(*self.CPI))
-      buff.write(_struct_11B.pack(*self.CP))
-      buff.write(_struct_17B.pack(*self.PS))
-      buff.write(_struct_13B.pack(*self.DG))
-      buff.write(_struct_13B.pack(*self.DD))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_9B().pack(*self.CPI))
+      buff.write(_get_struct_11B().pack(*self.CP))
+      buff.write(_get_struct_17B().pack(*self.PS))
+      buff.write(_get_struct_13B().pack(*self.DG))
+      buff.write(_get_struct_13B().pack(*self.DD))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -121,7 +117,7 @@ string frame_id
       _x = self
       start = end
       end += 12
-      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _struct_3I.unpack(str[start:end])
+      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -133,23 +129,23 @@ string frame_id
         self.header.frame_id = str[start:end]
       start = end
       end += 9
-      self.CPI = _struct_9B.unpack(str[start:end])
+      self.CPI = _get_struct_9B().unpack(str[start:end])
       self.CPI = map(bool, self.CPI)
       start = end
       end += 11
-      self.CP = _struct_11B.unpack(str[start:end])
+      self.CP = _get_struct_11B().unpack(str[start:end])
       self.CP = map(bool, self.CP)
       start = end
       end += 17
-      self.PS = _struct_17B.unpack(str[start:end])
+      self.PS = _get_struct_17B().unpack(str[start:end])
       self.PS = map(bool, self.PS)
       start = end
       end += 13
-      self.DG = _struct_13B.unpack(str[start:end])
+      self.DG = _get_struct_13B().unpack(str[start:end])
       self.DG = map(bool, self.DG)
       start = end
       end += 13
-      self.DD = _struct_13B.unpack(str[start:end])
+      self.DD = _get_struct_13B().unpack(str[start:end])
       self.DD = map(bool, self.DD)
       return self
     except struct.error as e:
@@ -164,23 +160,20 @@ string frame_id
     """
     try:
       _x = self
-      buff.write(_struct_3I.pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
+      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
       _x = self.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       buff.write(self.CPI.tostring())
       buff.write(self.CP.tostring())
       buff.write(self.PS.tostring())
       buff.write(self.DG.tostring())
       buff.write(self.DD.tostring())
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -195,7 +188,7 @@ string frame_id
       _x = self
       start = end
       end += 12
-      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _struct_3I.unpack(str[start:end])
+      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -230,8 +223,36 @@ string frame_id
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_13B = struct.Struct("<13B")
-_struct_3I = struct.Struct("<3I")
-_struct_9B = struct.Struct("<9B")
-_struct_17B = struct.Struct("<17B")
-_struct_11B = struct.Struct("<11B")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_13B = None
+def _get_struct_13B():
+    global _struct_13B
+    if _struct_13B is None:
+        _struct_13B = struct.Struct("<13B")
+    return _struct_13B
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I
+_struct_9B = None
+def _get_struct_9B():
+    global _struct_9B
+    if _struct_9B is None:
+        _struct_9B = struct.Struct("<9B")
+    return _struct_9B
+_struct_17B = None
+def _get_struct_17B():
+    global _struct_17B
+    if _struct_17B is None:
+        _struct_17B = struct.Struct("<17B")
+    return _struct_17B
+_struct_11B = None
+def _get_struct_11B():
+    global _struct_11B
+    if _struct_11B is None:
+        _struct_11B = struct.Struct("<11B")
+    return _struct_11B

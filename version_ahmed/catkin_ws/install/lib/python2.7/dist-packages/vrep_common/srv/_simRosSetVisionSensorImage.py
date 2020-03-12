@@ -27,7 +27,7 @@ MSG: sensor_msgs/Image
 
 Header header        # Header timestamp should be acquisition time of image
                      # Header frame_id should be optical frame of camera
-                     # origin of frame should be optical center of cameara
+                     # origin of frame should be optical center of camera
                      # +x should point to the right in the image
                      # +y should point down in the image
                      # +z should point into to plane of the image
@@ -66,7 +66,6 @@ time stamp
 # 0: no frame
 # 1: global frame
 string frame_id
-
 """
   __slots__ = ['handle','image']
   _slot_types = ['int32','sensor_msgs/Image']
@@ -109,29 +108,23 @@ string frame_id
     """
     try:
       _x = self
-      buff.write(_struct_i3I.pack(_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs))
+      buff.write(_get_struct_i3I().pack(_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs))
       _x = self.image.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2I.pack(_x.image.height, _x.image.width))
+      buff.write(_get_struct_2I().pack(_x.image.height, _x.image.width))
       _x = self.image.encoding
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_BI.pack(_x.image.is_bigendian, _x.image.step))
+      buff.write(_get_struct_BI().pack(_x.image.is_bigendian, _x.image.step))
       _x = self.image.data
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -139,8 +132,8 @@ string frame_id
         buff.write(struct.pack('<I%sB'%length, length, *_x))
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -154,7 +147,7 @@ string frame_id
       _x = self
       start = end
       end += 16
-      (_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs,) = _struct_i3I.unpack(str[start:end])
+      (_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs,) = _get_struct_i3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -167,7 +160,7 @@ string frame_id
       _x = self
       start = end
       end += 8
-      (_x.image.height, _x.image.width,) = _struct_2I.unpack(str[start:end])
+      (_x.image.height, _x.image.width,) = _get_struct_2I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -180,7 +173,7 @@ string frame_id
       _x = self
       start = end
       end += 5
-      (_x.image.is_bigendian, _x.image.step,) = _struct_BI.unpack(str[start:end])
+      (_x.image.is_bigendian, _x.image.step,) = _get_struct_BI().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -200,29 +193,23 @@ string frame_id
     """
     try:
       _x = self
-      buff.write(_struct_i3I.pack(_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs))
+      buff.write(_get_struct_i3I().pack(_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs))
       _x = self.image.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2I.pack(_x.image.height, _x.image.width))
+      buff.write(_get_struct_2I().pack(_x.image.height, _x.image.width))
       _x = self.image.encoding
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_BI.pack(_x.image.is_bigendian, _x.image.step))
+      buff.write(_get_struct_BI().pack(_x.image.is_bigendian, _x.image.step))
       _x = self.image.data
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -230,8 +217,8 @@ string frame_id
         buff.write(struct.pack('<I%sB'%length, length, *_x))
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -246,7 +233,7 @@ string frame_id
       _x = self
       start = end
       end += 16
-      (_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs,) = _struct_i3I.unpack(str[start:end])
+      (_x.handle, _x.image.header.seq, _x.image.header.stamp.secs, _x.image.header.stamp.nsecs,) = _get_struct_i3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -259,7 +246,7 @@ string frame_id
       _x = self
       start = end
       end += 8
-      (_x.image.height, _x.image.width,) = _struct_2I.unpack(str[start:end])
+      (_x.image.height, _x.image.width,) = _get_struct_2I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -272,7 +259,7 @@ string frame_id
       _x = self
       start = end
       end += 5
-      (_x.image.is_bigendian, _x.image.step,) = _struct_BI.unpack(str[start:end])
+      (_x.image.is_bigendian, _x.image.step,) = _get_struct_BI().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -284,9 +271,27 @@ string frame_id
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i3I = struct.Struct("<i3I")
-_struct_2I = struct.Struct("<2I")
-_struct_BI = struct.Struct("<BI")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_i3I = None
+def _get_struct_i3I():
+    global _struct_i3I
+    if _struct_i3I is None:
+        _struct_i3I = struct.Struct("<i3I")
+    return _struct_i3I
+_struct_2I = None
+def _get_struct_2I():
+    global _struct_2I
+    if _struct_2I is None:
+        _struct_2I = struct.Struct("<2I")
+    return _struct_2I
+_struct_BI = None
+def _get_struct_BI():
+    global _struct_BI
+    if _struct_BI is None:
+        _struct_BI = struct.Struct("<BI")
+    return _struct_BI
 # This Python file uses the following encoding: utf-8
 """autogenerated by genpy from vrep_common/simRosSetVisionSensorImageResponse.msg. Do not edit."""
 import sys
@@ -300,7 +305,6 @@ class simRosSetVisionSensorImageResponse(genpy.Message):
   _type = "vrep_common/simRosSetVisionSensorImageResponse"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 result
-
 
 """
   __slots__ = ['result']
@@ -340,9 +344,9 @@ class simRosSetVisionSensorImageResponse(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      buff.write(_struct_i.pack(self.result))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i().pack(self.result))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -353,7 +357,7 @@ class simRosSetVisionSensorImageResponse(genpy.Message):
       end = 0
       start = end
       end += 4
-      (self.result,) = _struct_i.unpack(str[start:end])
+      (self.result,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -366,9 +370,9 @@ class simRosSetVisionSensorImageResponse(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      buff.write(_struct_i.pack(self.result))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i().pack(self.result))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -380,13 +384,21 @@ class simRosSetVisionSensorImageResponse(genpy.Message):
       end = 0
       start = end
       end += 4
-      (self.result,) = _struct_i.unpack(str[start:end])
+      (self.result,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i = struct.Struct("<i")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i
 class simRosSetVisionSensorImage(object):
   _type          = 'vrep_common/simRosSetVisionSensorImage'
   _md5sum = 'e312c990380d2289b9e07f7a0295ef34'

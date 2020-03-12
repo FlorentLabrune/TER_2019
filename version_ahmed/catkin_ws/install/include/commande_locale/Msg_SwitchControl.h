@@ -40,6 +40,7 @@ struct Msg_SwitchControl_
     , LOCK()
     , RD()
     , RG()  {
+  (void)_alloc;
       LOCK.assign(false);
 
       RD.assign(false);
@@ -60,6 +61,7 @@ struct Msg_SwitchControl_
 
    typedef boost::array<uint8_t, 13>  _RG_type;
   _RG_type RG;
+
 
 
 
@@ -95,7 +97,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'std_msgs': ['/opt/ros/jade/share/std_msgs/cmake/../msg'], 'commande_locale': ['/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/src/commande_locale/msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'commande_locale': ['/home/florent/Documents/TER/version_ahmed/catkin_ws/src/commande_locale/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -168,6 +170,7 @@ bool[13] LOCK\n\
 bool[13] RD\n\
 bool[13] RG\n\
 \n\
+\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -209,7 +212,7 @@ namespace serialization
       stream.next(m.RG);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Msg_SwitchControl_
 
 } // namespace serialization

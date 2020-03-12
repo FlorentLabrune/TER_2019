@@ -29,14 +29,13 @@ bool receive(plc_out::outputs::Request &req,
    ROS_INFO ("output module = %d", (uint8_t)req.data_out_module);
    ROS_INFO ("output position = %d", (uint16_t)req.data_out_position);
    ROS_INFO ("output value = %d", (bool)req.data_out_value);
-   ROS_INFO ("back response: [%s]", res.feedback_in.c_str());
 
 
    modbus_t *ap;
    ap = modbus_new_tcp(ADDRESS_IP_PLC, 502);
    modbus_connect(ap);
  
-   if (modbus_write_register(ap,actuator_module,actuator_position,actuator_value) > 0) 
+   if (modbus_write_register(ap,actuator_module,actuator_value) > 0) 
      {
         ROS_INFO("Successful writing !");	
      }

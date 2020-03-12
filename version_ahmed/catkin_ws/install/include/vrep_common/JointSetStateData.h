@@ -35,6 +35,7 @@ struct JointSetStateData_
     : handles(_alloc)
     , setModes(_alloc)
     , values(_alloc)  {
+  (void)_alloc;
     }
 
 
@@ -47,6 +48,7 @@ struct JointSetStateData_
 
    typedef  ::std_msgs::Float32MultiArray_<ContainerAllocator>  _values_type;
   _values_type values;
+
 
 
 
@@ -82,7 +84,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/jade/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/jade/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/jade/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/src/vrep_common/msg']}
+// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'vrep_common': ['/home/florent/Documents/TER/version_ahmed/catkin_ws/src/vrep_common/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -169,7 +171,7 @@ MSG: std_msgs/MultiArrayLayout\n\
 # to inner most.\n\
 \n\
 MultiArrayDimension[] dim # Array of dimension properties\n\
-uint32 data_offset        # padding bytes at front of data\n\
+uint32 data_offset        # padding elements at front of data\n\
 \n\
 # Accessors should ALWAYS be written in terms of dimension stride\n\
 # and specified outer-most dimension first.\n\
@@ -190,6 +192,7 @@ uint32 data_offset        # padding bytes at front of data\n\
 # dim[2].stride = 3\n\
 #\n\
 # multiarray(i,j,k) refers to the ith row, jth column, and kth channel.\n\
+\n\
 ================================================================================\n\
 MSG: std_msgs/MultiArrayDimension\n\
 string label   # label of given dimension\n\
@@ -235,7 +238,7 @@ namespace serialization
       stream.next(m.values);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct JointSetStateData_
 
 } // namespace serialization

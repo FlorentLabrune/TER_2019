@@ -6,16 +6,17 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  automates
 )
 
+generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(CATKIN_DEPENDS roscpp rospy std_msgs message_runtime)
 
 include_directories(${catkin_INCLUDE_DIRS})
-set(EXECUTABLE_OUTPUT_PATH ../../../)
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
 
 add_executable(start src/main_communication.cpp src/communication.cpp)
-add_dependencies(start communication_generate_messages_cpp)
+
+
+add_dependencies(start communication_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
 target_link_libraries(start ${catkin_LIBRARIES})

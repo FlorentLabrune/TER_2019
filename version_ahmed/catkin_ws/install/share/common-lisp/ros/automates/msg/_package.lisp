@@ -1,9 +1,9 @@
 (cl:defpackage automates-msg
   (:use )
   (:export
-   "<SORTIES>"
-   "SORTIES"
    "<ENTREES>"
    "ENTREES"
+   "<SORTIES>"
+   "SORTIES"
   ))
 

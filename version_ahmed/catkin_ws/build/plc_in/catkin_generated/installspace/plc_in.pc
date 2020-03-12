@@ -4,5 +4,5 @@ Name: plc_in
 Description: Description of plc_in
 Version: 0.0.0
 Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
+Libs: -L${prefix}/lib -lplc_in
 Requires: message_runtime

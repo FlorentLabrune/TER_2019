@@ -20,7 +20,6 @@ int32 dialogType
 string initialText
 float32[] titleColors
 float32[] dialogColors
-
 """
   __slots__ = ['titleText','mainText','dialogType','initialText','titleColors','dialogColors']
   _slot_types = ['string','string','int32','string','float32[]','float32[]']
@@ -79,29 +78,20 @@ float32[] dialogColors
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self.mainText
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_struct_i.pack(self.dialogType))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_i().pack(self.dialogType))
       _x = self.initialText
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       length = len(self.titleColors)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -110,8 +100,8 @@ float32[] dialogColors
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
       buff.write(struct.pack(pattern, *self.dialogColors))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -140,7 +130,7 @@ float32[] dialogColors
         self.mainText = str[start:end]
       start = end
       end += 4
-      (self.dialogType,) = _struct_i.unpack(str[start:end])
+      (self.dialogType,) = _get_struct_i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -181,29 +171,20 @@ float32[] dialogColors
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self.mainText
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_struct_i.pack(self.dialogType))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_i().pack(self.dialogType))
       _x = self.initialText
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       length = len(self.titleColors)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -212,8 +193,8 @@ float32[] dialogColors
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
       buff.write(self.dialogColors.tostring())
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -243,7 +224,7 @@ float32[] dialogColors
         self.mainText = str[start:end]
       start = end
       end += 4
-      (self.dialogType,) = _struct_i.unpack(str[start:end])
+      (self.dialogType,) = _get_struct_i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -272,7 +253,15 @@ float32[] dialogColors
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i = struct.Struct("<i")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i
 # This Python file uses the following encoding: utf-8
 """autogenerated by genpy from vrep_common/simRosDisplayDialogResponse.msg. Do not edit."""
 import sys
@@ -287,7 +276,6 @@ class simRosDisplayDialogResponse(genpy.Message):
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 dialogHandle
 int32 uiHandle
-
 
 """
   __slots__ = ['dialogHandle','uiHandle']
@@ -331,9 +319,9 @@ int32 uiHandle
     """
     try:
       _x = self
-      buff.write(_struct_2i.pack(_x.dialogHandle, _x.uiHandle))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_2i().pack(_x.dialogHandle, _x.uiHandle))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -345,7 +333,7 @@ int32 uiHandle
       _x = self
       start = end
       end += 8
-      (_x.dialogHandle, _x.uiHandle,) = _struct_2i.unpack(str[start:end])
+      (_x.dialogHandle, _x.uiHandle,) = _get_struct_2i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -359,9 +347,9 @@ int32 uiHandle
     """
     try:
       _x = self
-      buff.write(_struct_2i.pack(_x.dialogHandle, _x.uiHandle))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_2i().pack(_x.dialogHandle, _x.uiHandle))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -374,13 +362,21 @@ int32 uiHandle
       _x = self
       start = end
       end += 8
-      (_x.dialogHandle, _x.uiHandle,) = _struct_2i.unpack(str[start:end])
+      (_x.dialogHandle, _x.uiHandle,) = _get_struct_2i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2i = struct.Struct("<2i")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_2i = None
+def _get_struct_2i():
+    global _struct_2i
+    if _struct_2i is None:
+        _struct_2i = struct.Struct("<2i")
+    return _struct_2i
 class simRosDisplayDialog(object):
   _type          = 'vrep_common/simRosDisplayDialog'
   _md5sum = '948197fff5a2d242998cebb95fb8cae1'

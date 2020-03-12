@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/florent/Documents/TER/version_ahmed/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,27 +87,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -164,6 +153,21 @@ preinstall/fast:
 depend:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+plc_in/CMakeFiles/plc_in.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 plc_in/CMakeFiles/plc_in.dir/rule
+.PHONY : plc_in/CMakeFiles/plc_in.dir/rule
+
+# Convenience name for target.
+plc_in: plc_in/CMakeFiles/plc_in.dir/rule
+
+.PHONY : plc_in
+
+# fast build rule for target.
+plc_in/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in.dir/build.make plc_in/CMakeFiles/plc_in.dir/build
+.PHONY : plc_in/fast
 
 # Convenience name for target.
 plc_in/CMakeFiles/plc_in_genpy.dir/rule:
@@ -381,6 +385,7 @@ src/plc_config_sensors.o: src/plc_config_sensors.cpp.o
 
 # target to build an object file
 src/plc_config_sensors.cpp.o:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in.dir/build.make plc_in/CMakeFiles/plc_in.dir/src/plc_config_sensors.cpp.o
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in_server.dir/build.make plc_in/CMakeFiles/plc_in_server.dir/src/plc_config_sensors.cpp.o
 .PHONY : src/plc_config_sensors.cpp.o
 
@@ -390,6 +395,7 @@ src/plc_config_sensors.i: src/plc_config_sensors.cpp.i
 
 # target to preprocess a source file
 src/plc_config_sensors.cpp.i:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in.dir/build.make plc_in/CMakeFiles/plc_in.dir/src/plc_config_sensors.cpp.i
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in_server.dir/build.make plc_in/CMakeFiles/plc_in_server.dir/src/plc_config_sensors.cpp.i
 .PHONY : src/plc_config_sensors.cpp.i
 
@@ -399,6 +405,7 @@ src/plc_config_sensors.s: src/plc_config_sensors.cpp.s
 
 # target to generate assembly for a file
 src/plc_config_sensors.cpp.s:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in.dir/build.make plc_in/CMakeFiles/plc_in.dir/src/plc_config_sensors.cpp.s
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_in/CMakeFiles/plc_in_server.dir/build.make plc_in/CMakeFiles/plc_in_server.dir/src/plc_config_sensors.cpp.s
 .PHONY : src/plc_config_sensors.cpp.s
 
@@ -462,10 +469,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... list_install_components"
-	@echo "... install/strip"
+	@echo "... plc_in"
 	@echo "... plc_in_genpy"
 	@echo "... plc_in_server"
 	@echo "... plc_in_generate_messages_py"

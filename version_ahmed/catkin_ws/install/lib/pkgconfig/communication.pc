@@ -1,8 +1,8 @@
-prefix=/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/install
+prefix=/home/florent/Documents/TER/version_ahmed/catkin_ws/install
 
 Name: communication
 Description: Description of communication
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/etudiant/M1_ISTR/Ligne_transitique_MONTRAC/ros_ws/install/lib 
+Libs: -L${prefix}/lib 
 Requires: roscpp rospy std_msgs message_runtime

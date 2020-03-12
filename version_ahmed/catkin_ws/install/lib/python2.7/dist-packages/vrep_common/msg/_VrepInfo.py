@@ -39,8 +39,7 @@ MSG: std_msgs/Int32
 int32 data
 ================================================================================
 MSG: std_msgs/Float32
-float32 data
-"""
+float32 data"""
   __slots__ = ['headerInfo','simulatorState','simulationTime','timeStep']
   _slot_types = ['std_msgs/Header','std_msgs/Int32','std_msgs/Float32','std_msgs/Float32']
 
@@ -88,20 +87,17 @@ float32 data
     """
     try:
       _x = self
-      buff.write(_struct_3I.pack(_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs))
+      buff.write(_get_struct_3I().pack(_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs))
       _x = self.headerInfo.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_i2f.pack(_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i2f().pack(_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -121,7 +117,7 @@ float32 data
       _x = self
       start = end
       end += 12
-      (_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs,) = _struct_3I.unpack(str[start:end])
+      (_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -134,7 +130,7 @@ float32 data
       _x = self
       start = end
       end += 12
-      (_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data,) = _struct_i2f.unpack(str[start:end])
+      (_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data,) = _get_struct_i2f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -148,20 +144,17 @@ float32 data
     """
     try:
       _x = self
-      buff.write(_struct_3I.pack(_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs))
+      buff.write(_get_struct_3I().pack(_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs))
       _x = self.headerInfo.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
-      if python3:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_i2f.pack(_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_i2f().pack(_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -182,7 +175,7 @@ float32 data
       _x = self
       start = end
       end += 12
-      (_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs,) = _struct_3I.unpack(str[start:end])
+      (_x.headerInfo.seq, _x.headerInfo.stamp.secs, _x.headerInfo.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -195,11 +188,24 @@ float32 data
       _x = self
       start = end
       end += 12
-      (_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data,) = _struct_i2f.unpack(str[start:end])
+      (_x.simulatorState.data, _x.simulationTime.data, _x.timeStep.data,) = _get_struct_i2f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_3I = struct.Struct("<3I")
-_struct_i2f = struct.Struct("<i2f")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I
+_struct_i2f = None
+def _get_struct_i2f():
+    global _struct_i2f
+    if _struct_i2f is None:
+        _struct_i2f = struct.Struct("<i2f")
+    return _struct_i2f

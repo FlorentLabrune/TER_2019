@@ -6,6 +6,6 @@ struct coord{
     uint8_t data_mod;
     uint16_t data_pos;
 };
-coord identification_act (std::string actuator_nm);
+coord identification_act(std::string actuator_nm);
 
 #endif

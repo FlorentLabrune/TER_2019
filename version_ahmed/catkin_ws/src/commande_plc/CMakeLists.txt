@@ -7,6 +7,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 ## we have to add the dependency to this package:
   message_generation
+  plc_out
+  plc_in
 )
 
 ################################################
@@ -18,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    actuators.msg
+   sensors.msg
  )
 
 
@@ -46,6 +49,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+
 add_executable(commande_plc src/commande_plc.cpp)
 target_link_libraries(commande_plc ${catkin_LIBRARIES})
-add_dependencies(commande_plc commande_plc_generate_messages_cpp)
+add_dependencies(commande_plc commande_plc_generate_messages_cpp ${catkin_EXPORTED_TARGETS})

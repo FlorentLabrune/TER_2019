@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(plc_out_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/include " STREQUAL " ")
+if(NOT "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/include;/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_out/include " STREQUAL " ")
   set(plc_out_INCLUDE_DIRS "")
-  set(_include_dirs "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/include")
+  set(_include_dirs "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/include;/home/florent/Documents/TER/version_ahmed/catkin_ws/src/plc_out/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "/home/florent/Documents/TER/version_ahmed/catkin_ws/devel/include " STRE
   endforeach()
 endif()
 
-set(libraries "")
+set(libraries "plc_out")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -185,7 +185,7 @@ foreach(t ${plc_out_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "message_runtime")
+set(depends "roscpp")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

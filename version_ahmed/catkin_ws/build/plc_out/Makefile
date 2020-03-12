@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/florent/Documents/TER/version_ahmed/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,27 +87,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -241,6 +230,21 @@ plc_out_gencpp/fast:
 .PHONY : plc_out_gencpp/fast
 
 # Convenience name for target.
+plc_out/CMakeFiles/plc_out.dir/rule:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 plc_out/CMakeFiles/plc_out.dir/rule
+.PHONY : plc_out/CMakeFiles/plc_out.dir/rule
+
+# Convenience name for target.
+plc_out: plc_out/CMakeFiles/plc_out.dir/rule
+
+.PHONY : plc_out
+
+# fast build rule for target.
+plc_out/fast:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_out/CMakeFiles/plc_out.dir/build.make plc_out/CMakeFiles/plc_out.dir/build
+.PHONY : plc_out/fast
+
+# Convenience name for target.
 plc_out/CMakeFiles/plc_out_generate_messages_cpp.dir/rule:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 plc_out/CMakeFiles/plc_out_generate_messages_cpp.dir/rule
 .PHONY : plc_out/CMakeFiles/plc_out_generate_messages_cpp.dir/rule
@@ -375,6 +379,33 @@ plc_out_generate_messages_nodejs/fast:
 	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_out/CMakeFiles/plc_out_generate_messages_nodejs.dir/build.make plc_out/CMakeFiles/plc_out_generate_messages_nodejs.dir/build
 .PHONY : plc_out_generate_messages_nodejs/fast
 
+src/plc_config_actuators.o: src/plc_config_actuators.cpp.o
+
+.PHONY : src/plc_config_actuators.o
+
+# target to build an object file
+src/plc_config_actuators.cpp.o:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_out/CMakeFiles/plc_out.dir/build.make plc_out/CMakeFiles/plc_out.dir/src/plc_config_actuators.cpp.o
+.PHONY : src/plc_config_actuators.cpp.o
+
+src/plc_config_actuators.i: src/plc_config_actuators.cpp.i
+
+.PHONY : src/plc_config_actuators.i
+
+# target to preprocess a source file
+src/plc_config_actuators.cpp.i:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_out/CMakeFiles/plc_out.dir/build.make plc_out/CMakeFiles/plc_out.dir/src/plc_config_actuators.cpp.i
+.PHONY : src/plc_config_actuators.cpp.i
+
+src/plc_config_actuators.s: src/plc_config_actuators.cpp.s
+
+.PHONY : src/plc_config_actuators.s
+
+# target to generate assembly for a file
+src/plc_config_actuators.cpp.s:
+	cd /home/florent/Documents/TER/version_ahmed/catkin_ws/build && $(MAKE) -f plc_out/CMakeFiles/plc_out.dir/build.make plc_out/CMakeFiles/plc_out.dir/src/plc_config_actuators.cpp.s
+.PHONY : src/plc_config_actuators.cpp.s
+
 src/plc_out_client.o: src/plc_out_client.cpp.o
 
 .PHONY : src/plc_out_client.o
@@ -435,16 +466,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... list_install_components"
-	@echo "... install/strip"
 	@echo "... plc_out_server"
 	@echo "... plc_out_client"
 	@echo "... plc_out_genpy"
 	@echo "... plc_out_generate_messages_py"
 	@echo "... install"
 	@echo "... plc_out_gencpp"
+	@echo "... plc_out"
 	@echo "... plc_out_generate_messages_cpp"
 	@echo "... _plc_out_generate_messages_check_deps_outputs"
 	@echo "... plc_out_generate_messages"
@@ -456,6 +487,9 @@ help:
 	@echo "... plc_out_generate_messages_lisp"
 	@echo "... plc_out_geneus"
 	@echo "... plc_out_generate_messages_nodejs"
+	@echo "... src/plc_config_actuators.o"
+	@echo "... src/plc_config_actuators.i"
+	@echo "... src/plc_config_actuators.s"
 	@echo "... src/plc_out_client.o"
 	@echo "... src/plc_out_client.i"
 	@echo "... src/plc_out_client.s"

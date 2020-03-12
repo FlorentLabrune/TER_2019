@@ -31,8 +31,7 @@ float32 y
 float32 z
 ================================================================================
 MSG: std_msgs/Int32
-int32 data
-"""
+int32 data"""
   __slots__ = ['detectedPoint','detectedObject','normalVector']
   _slot_types = ['geometry_msgs/Point32','std_msgs/Int32','geometry_msgs/Point32']
 
@@ -77,9 +76,9 @@ int32 data
     """
     try:
       _x = self
-      buff.write(_struct_3fi3f.pack(_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_3fi3f().pack(_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -97,7 +96,7 @@ int32 data
       _x = self
       start = end
       end += 28
-      (_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z,) = _struct_3fi3f.unpack(str[start:end])
+      (_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z,) = _get_struct_3fi3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -111,9 +110,9 @@ int32 data
     """
     try:
       _x = self
-      buff.write(_struct_3fi3f.pack(_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+      buff.write(_get_struct_3fi3f().pack(_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -132,10 +131,18 @@ int32 data
       _x = self
       start = end
       end += 28
-      (_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z,) = _struct_3fi3f.unpack(str[start:end])
+      (_x.detectedPoint.x, _x.detectedPoint.y, _x.detectedPoint.z, _x.detectedObject.data, _x.normalVector.x, _x.normalVector.y, _x.normalVector.z,) = _get_struct_3fi3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_3fi3f = struct.Struct("<3fi3f")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_3fi3f = None
+def _get_struct_3fi3f():
+    global _struct_3fi3f
+    if _struct_3fi3f is None:
+        _struct_3fi3f = struct.Struct("<3fi3f")
+    return _struct_3fi3f

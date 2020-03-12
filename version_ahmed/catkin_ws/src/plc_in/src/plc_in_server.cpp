@@ -55,7 +55,7 @@ while (ros::ok())
   {
     commande_plc::sensors msg;
     //msg.actuators_data = atoll(argv[1]);
-    ((msg.actuators_data[sensor_module]>>sensor_position) & 1) = sensor_value;
+    //((msg.actuators_data[sensor_module]>>sensor_position) & 1) = sensor_value;
     pub.publish(msg);
     ros::spinOnce();
     loop_rate.sleep();

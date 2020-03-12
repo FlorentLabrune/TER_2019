@@ -151,10 +151,10 @@
   "f2a54a090baac0d8c5c08bb865b8cd2d")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<simRosReadForceSensor-response>)))
   "Returns full string definition for message of type '<simRosReadForceSensor-response>"
-  (cl:format cl:nil "int32 result~%geometry_msgs/Vector3 force~%geometry_msgs/Vector3 torque~%~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
+  (cl:format cl:nil "int32 result~%geometry_msgs/Vector3 force~%geometry_msgs/Vector3 torque~%~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%# It is only meant to represent a direction. Therefore, it does not~%# make sense to apply a translation to it (e.g., when applying a ~%# generic rigid transformation to a Vector3, tf2 will only apply the~%# rotation). If you want your data to be translatable too, use the~%# geometry_msgs/Point message instead.~%~%float64 x~%float64 y~%float64 z~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'simRosReadForceSensor-response)))
   "Returns full string definition for message of type 'simRosReadForceSensor-response"
-  (cl:format cl:nil "int32 result~%geometry_msgs/Vector3 force~%geometry_msgs/Vector3 torque~%~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
+  (cl:format cl:nil "int32 result~%geometry_msgs/Vector3 force~%geometry_msgs/Vector3 torque~%~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%# It is only meant to represent a direction. Therefore, it does not~%# make sense to apply a translation to it (e.g., when applying a ~%# generic rigid transformation to a Vector3, tf2 will only apply the~%# rotation). If you want your data to be translatable too, use the~%# geometry_msgs/Point message instead.~%~%float64 x~%float64 y~%float64 z~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <simRosReadForceSensor-response>))
   (cl:+ 0
      4

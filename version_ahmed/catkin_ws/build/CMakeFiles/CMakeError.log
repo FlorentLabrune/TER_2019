@@ -51,3 +51,62 @@ make[1]: *** [cmTryCompileExec3166442082] Error 1
 make: *** [cmTryCompileExec3166442082/fast] Error 2
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2df84/fast"
+make[1] : on entre dans le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+/usr/bin/make -f CMakeFiles/cmTC_2df84.dir/build.make CMakeFiles/cmTC_2df84.dir/build
+make[2] : on entre dans le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_2df84.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_2df84.dir/CheckSymbolExists.c.o   -c /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2df84
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2df84.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_2df84.dir/CheckSymbolExists.c.o  -o cmTC_2df84 -rdynamic 
+CMakeFiles/cmTC_2df84.dir/CheckSymbolExists.c.o : Dans la fonction « main » :
+CheckSymbolExists.c:(.text+0x16) : référence indéfinie vers « pthread_create »
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2df84.dir/build.make:97 : la recette pour la cible « cmTC_2df84 » a échouée
+make[2]: *** [cmTC_2df84] Erreur 1
+make[2] : on quitte le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+Makefile:126 : la recette pour la cible « cmTC_2df84/fast » a échouée
+make[1]: *** [cmTC_2df84/fast] Erreur 2
+make[1] : on quitte le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+
+File /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_13625/fast"
+make[1] : on entre dans le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+/usr/bin/make -f CMakeFiles/cmTC_13625.dir/build.make CMakeFiles/cmTC_13625.dir/build
+make[2] : on entre dans le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_13625.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_13625.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_13625
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13625.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_13625.dir/CheckFunctionExists.c.o  -o cmTC_13625 -rdynamic -lpthreads 
+/usr/bin/ld : ne peut trouver -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_13625.dir/build.make:97 : la recette pour la cible « cmTC_13625 » a échouée
+make[2]: *** [cmTC_13625] Erreur 1
+make[2] : on quitte le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+Makefile:126 : la recette pour la cible « cmTC_13625/fast » a échouée
+make[1]: *** [cmTC_13625/fast] Erreur 2
+make[1] : on quitte le répertoire « /home/florent/Documents/TER/version_ahmed/catkin_ws/build/CMakeFiles/CMakeTmp »
+
+
