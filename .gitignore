@@ -9,7 +9,8 @@
 !/version_ahmed/catkin_ws/devel
 /version_ahmed/catkin_ws/devel/*
 !version_ahmed/catkin_ws/devel/include/
-
+!version_ahmed/catkin_ws/.catkin_workspace
+!version_ahmed/catkin_ws/_catkin_workspace
 
 #except src and includes
 !version_ahmed/catkin_ws/devel/include/
