@@ -8,7 +8,7 @@
 !/version_ahmed/catkin_ws/src
 !/version_ahmed/catkin_ws/devel
 /version_ahmed/catkin_ws/devel/*
-!/version_ahmed/catkin_ws/devel/include
+!version_ahmed/catkin_ws/devel/include/
 
 
 #except src and includes
