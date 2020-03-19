@@ -16,3 +16,4 @@
 !version_ahmed/catkin_ws/devel/include/
 !version_ahmed/catkin_ws/src/
 !.gitignore
+!install.sh
