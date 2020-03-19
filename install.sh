@@ -23,5 +23,4 @@ if [ ! -f $DIR_MODBUS ]; then
 fi
 
 cd $DIR_COURANT/MONTRAC/catkin_ws/
-catkin_make --force
-catkin_make install
+./build.sh
