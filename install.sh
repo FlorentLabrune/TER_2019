@@ -1,4 +1,6 @@
 #!/bin/bash
+source /opt/ros/kinetic/setup.bash
+
 DIR_MODBUS="/usr/local/include/modbus/modbus.h"
 DIR_COURANT=$(pwd)
 if [ ! -f $DIR_MODBUS ]; then
@@ -23,4 +25,6 @@ if [ ! -f $DIR_MODBUS ]; then
 fi
 
 cd $DIR_COURANT/MONTRAC/catkin_ws/
-./build.sh
+
+catkin_make --force
+catkin_make install
