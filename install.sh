@@ -8,11 +8,9 @@ if [ ! -f $DIR_MODBUS ]; then
 	read -p "" rep
 	if [ "$rep" != "y" ]; then
 		exit
-	elif ! [ -x "$(command -v autoconf)" ]; then
-		echo -e "you need autoconf, please run : \n\t sudo apt-get install autoconf \n\t sudo install_modbus.sh"
-		exit
 	else
 		echo -e "you need modbuslib, please run : \n\t sudo install_modbus.sh"
+		exit
 	fi
 fi
 
