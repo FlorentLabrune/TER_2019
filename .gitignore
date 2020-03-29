@@ -18,3 +18,4 @@
 !MONTRAC/catkin_ws/src/
 !.gitignore
 !install.sh
+!install_modbus.sh
