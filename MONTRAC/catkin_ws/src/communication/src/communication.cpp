@@ -1,11 +1,13 @@
-﻿#include "communication_API_schneider.h"
+/**** Bruno DATO, Abdellah ELGOURAIN, Evgeny SHULGA M1 EEA ISTR Université Paul Sabatier Toulouse III 2016 ****/
+
+#include "communication_API_schneider.h"
 #include "communication_commande.h"
 #include <ros/ros.h>
 #include <iostream>
 #include "automates/Entrees.h"
 #include "automates/Sorties.h"
-#include "commande/Actionneurs.h"
-#include "commande/Capteurs.h"
+#include "commande_locale/Actionneurs.h"
+#include "commande_locale/Capteurs.h"
 
 using namespace std;
 
@@ -53,7 +55,7 @@ void Communication_API_schneider::publish()
 Communication_commande::Communication_commande(ros::NodeHandle noeud)
 {
 	// Publishers
-	pub_capteurs = noeud.advertise<commande::Capteurs>("/commande/Ligne_transitique/Capteurs", 1);
+	pub_capteurs = noeud.advertise<commande_locale::Capteurs>("/commande/Ligne_transitique/Capteurs", 1);
 
 	// Subscriber
 	sub_actionneurs = noeud.subscribe("/commande/Ligne_transitique/Actionneurs", 1, &Communication_commande::Callback_Actionneurs,this);
@@ -70,7 +72,7 @@ Communication_commande::~Communication_commande()
 }
 
 //
-void Communication_commande::Callback_Actionneurs(const commande::Actionneurs msg)
+void Communication_commande::Callback_Actionneurs(const commande_locale::Actionneurs msg)
 {
 	ACTIONNEURS=msg.actionneurs;
 	ROS_INFO("Actionneurs : %ld",msg.actionneurs);
@@ -79,7 +81,7 @@ void Communication_commande::Callback_Actionneurs(const commande::Actionneurs ms
 //
 void Communication_commande::publish()
 {
-	commande::Capteurs msg;
+	commande_locale::Capteurs msg;
 	msg.capteurs=CAPTEURS;
 	pub_capteurs.publish(msg);
 }

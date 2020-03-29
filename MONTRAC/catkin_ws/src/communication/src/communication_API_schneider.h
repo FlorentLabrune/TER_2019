@@ -1,11 +1,13 @@
-﻿#ifndef Communication_API_sch
+/**** Bruno DATO, Abdellah ELGOURAIN, Evgeny SHULGA M1 EEA ISTR Université Paul Sabatier Toulouse III 2016 ****/
+
+#ifndef Communication_API_sch
 #define Communication_API_sch
 
 #include <ros/ros.h>
 #include <string>
 #include <iostream>
-#include "automates/Entrees.h"
-#include "automates/Sorties.h"
+#include <automates/Entrees.h>
+#include <automates/Sorties.h>
 
 class Communication_API_schneider
 {

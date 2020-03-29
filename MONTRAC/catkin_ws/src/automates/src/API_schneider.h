@@ -1,4 +1,6 @@
-﻿#ifndef API_sch
+/**** Bruno DATO, Abdellah ELGOURAIN, Evgeny SHULGA M1 EEA ISTR Université Paul Sabatier Toulouse III 2016 ****/
+
+#ifndef API_sch
 #define API_sch
 
 #include <ros/ros.h>

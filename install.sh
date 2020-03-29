@@ -9,18 +9,10 @@ if [ ! -f $DIR_MODBUS ]; then
 	if [ "$rep" != "y" ]; then
 		exit
 	elif ! [ -x "$(command -v autoconf)" ]; then
-		echo -e "you need autoconf, please run : \n\t sudo apt-get install autoconf"
+		echo -e "you need autoconf, please run : \n\t sudo apt-get install autoconf \n\t sudo install_modbus.sh"
 		exit
 	else
-		if [ "$EUID" -ne 0 ]
-  			then echo "Please run as root"
-  			exit
-		fi
-		git clone https://github.com/stephane/libmodbus.git /tmp/modbus
-		cd /tmp/modbus
-		./autogen.sh
-		./configure
-		sudo make install
+		echo -e "you need modbuslib, please run : \n\t sudo install_modbus.sh"
 	fi
 fi
 

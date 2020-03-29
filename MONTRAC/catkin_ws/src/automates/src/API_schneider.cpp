@@ -1,4 +1,6 @@
-﻿#include "API_schneider.h"
+/**** Bruno DATO, Abdellah ELGOURAIN, Evgeny SHULGA M1 EEA ISTR Université Paul Sabatier Toulouse III 2016 ****/
+
+#include "API_schneider.h"
 #include <ros/ros.h>
 #include <modbus/modbus.h>
 #include <iostream>
@@ -47,7 +49,7 @@ uint16_t API_schneider::get_register(int adresse_registre, int nombre_registres)
 	}
 	else ROS_INFO("Erreur lecture");
 		
-	// On ferme la liaison Modbus avec l'automate
+	// On ouvre la liaison Modbus avec l'automate
 	modbus_close(ap);
 	modbus_free(ap);
 
@@ -91,3 +93,11 @@ void API_schneider::publish()
 	msg.entrees=entrees;
 	pub_entrees.publish(msg);
 }
+
+
+
+
+
+
+
+

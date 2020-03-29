@@ -1,7 +1,8 @@
-﻿#include "communication_API_schneider.h"
+/**** Bruno DATO, Abdellah ELGOURAIN, Evgeny SHULGA M1 EEA ISTR Université Paul Sabatier Toulouse III 2016 ****/
+
+#include "communication_API_schneider.h"
 #include "communication_commande.h"
 #include <ros/ros.h> 
-#include "automates/Entrees.h"
 
 using namespace std;
 
